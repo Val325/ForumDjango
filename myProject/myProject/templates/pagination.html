@@ -1,0 +1,21 @@
+<div class="pagination_btn">
+{% if page_obj.has_previous %}
+<button onclick="location.href='?page={{ page_obj.previous_page_number }}'" type="button" class="btn" >Previous</button>
+{% else %}
+  <button type="button" class="btn" >Previous</button>
+{% endif %}
+
+{% for i in page_obj.paginator.page_range %}
+  {% if page_obj.number == i %}
+    <button onclick="location.href='#'" type="button" class="btn" >{{ i }}</button>
+  {% else %}
+    <button onclick="location.href='?page={{ i }}'" type="button" class="btn" >{{ i }}</button>
+  {% endif %}
+{% endfor %}
+
+{% if page_obj.has_next %}
+  <button onclick="location.href='?page={{ page_obj.next_page_number }}'" type="button" class="btn" >Next</button>
+{% else %}
+  <button type="button" class="btn" >Next</button>
+{% endif %}
+</div>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+{% load static %}
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>site</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static "css/styles.css" %}" />
+</head>
+<body>
+    {% include "header.html" %}
+    {% if session %} 
+    {% include "form.html" %}
+    {% endif %} 
+    <div class="post">
+        <div class="textPost">
+            <p>id:{{ post.id }}</p><p>name:{{ post.name }}</p><p>text:{{ post.text }}</p> <a href="/posts/{{ post.id }}">See post</a>
+        </div>
+
+
+    <div class="imagePost">
+        {% if post.image %}  
+        <a href="/myProject/media/{{post.image}}" target="_blank">
+            <img src="/myProject/media/{{post.image}}" width="100" height="100">
+        </a>
+        {% endif %}  
+    </div>
+
+</div>
+        {% for post in subposts %}
+           <div class="post">
+               <div class="textPost">
+                   <p>id:{{ post.id }}</p><p>user:{{ post.user }}</p><p>text:{{ post.textdata }}</p>
+               </div>
+               
+               <div class="imagePost">
+                   {% if post.image %}  
+                    <a href="/myProject/media/{{post.image}}" target="_blank">
+                       <img src="/myProject/media/{{post.image}}" width="100" height="100">
+                    </a>
+                   {% endif %}  
+               </div>
+              
+               
+           </div>
+           {% empty %}
+               <p>Dont has posts</p> 
+           {% endfor %}                
+            
+            
+        
+</body>
+</html>

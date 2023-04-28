@@ -92,8 +92,8 @@ def sign_up(request):
     	if form.is_valid():
     		user = form.save(commit=False)
     		user.save()
-    		return HttpResponse('<h1>Успешно!</h1>')
-    	return HttpResponse('<h1>Не успешно!</h1>')
+    		return redirect("/login/")
+    	return redirect("/reg/")
 
     
 def sign_in(request):
@@ -152,7 +152,8 @@ def Posts(request, id):
 	print(subposts)
 	print("------------")
 	indexChoiceArray = int(id) - 1
-
+	print('indexChoiceArray',indexChoiceArray)
+	#
 	DataId = [] 
 	DataName = []
 	DataTex = [] 
@@ -166,12 +167,6 @@ def Posts(request, id):
 		DataTex.append(data.textdata) 
 		DataImage.append(data.image)
 
-	print("------------")
-	print(DataId[indexChoiceArray]) 
-	print(DataName[indexChoiceArray])
-	print(DataTex[indexChoiceArray]) 
-	print(DataImage[indexChoiceArray])
-	print("------------")
 
 	post = {
 		"id": DataId[indexChoiceArray], 

@@ -14,7 +14,7 @@ class textData(models.Model):
 class SubPost(models.Model):
     post = models.ForeignKey(textData, on_delete=models.CASCADE, related_name='subpost')
     user = models.ForeignKey(User, on_delete=models.CASCADE)
-    image = models.ImageField(upload_to='images/', blank=True)
+    image = models.ImageField(upload_to='images/', blank=True, null=True)
     textdata = models.CharField(max_length=200)
     date = models.DateTimeField(auto_now_add=True)
     

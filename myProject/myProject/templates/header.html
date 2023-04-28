@@ -1,7 +1,10 @@
 <div class="headerMain">
-	<a href="/login">login</a>
-	<a href="/reg">Registration</a>
+	
 	{% if session %} 
 	<a href="/logout">logout</a>
+	<a href="/user">{{ post.user }}</a>
+	{% else %}
+	<a href="/login">login</a>
+	<a href="/reg">Registration</a>
 	{% endif %} 
 </div>

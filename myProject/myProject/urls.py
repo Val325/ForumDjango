@@ -14,7 +14,7 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path
+from django.urls import path, re_path
 from myProject import views
 from django.urls.conf import include  
 from django.conf import settings  
@@ -29,7 +29,7 @@ urlpatterns = [
     path('logout/', auth_views.LogoutView.as_view(next_page=settings.LOGOUT_REDIRECT_URL), name='logout'),
     path('posts/<id>', views.Posts),
     path('admin/', admin.site.urls),
-    path('api/', views.FakeAPI),
+    re_path(r'^api/', views.FakeAPI),
 ]
 
 if settings.DEBUG: # new

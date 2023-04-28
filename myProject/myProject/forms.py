@@ -5,7 +5,7 @@ from .models import textData, SubPost
 
 class UserForm(forms.ModelForm):
     textdata = forms.CharField(widget=forms.Textarea(attrs={"rows":"5", "cols": "40"}))
-    image = forms.ImageField()
+    image = forms.ImageField(required=False)
     class Meta:
         model = textData
         fields = ("textdata", "image")

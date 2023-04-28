@@ -30,6 +30,7 @@ urlpatterns = [
     path('posts/<id>', views.Posts),
     path('admin/', admin.site.urls),
     re_path(r'^api/', views.FakeAPI),
+    re_path(r'^profile/', views.profile),
 ]
 
 if settings.DEBUG: # new

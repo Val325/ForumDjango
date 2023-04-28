@@ -19,7 +19,7 @@
                         <table>
                             {{ form }}
                         </table>
-                    <input type="submit" value="Send" class="btn" />
+                    <input type="submit" value="Send" class="btn" id="formSend" />
                 </form>
         </div>
         {% endif %}   
@@ -31,7 +31,7 @@
                 <div class="post">
     
                     <div class="textPost">
-                        <p>id:{{ post.id }}</p><p>user:{{ post.user }}</p><p>text:{{ post.textdata }}</p> <a href="/posts/{{ post.id }}">Зайти в обсуждение</a>
+                        <p>№{{ post.id }} {{ post.user }}</p><p>{{ post.textdata }}</p> <a href="/posts/{{ post.id }}" class="btn" >Зайти в обсуждение</a>
                     </div>
                     
                     <div class="imagePost">
@@ -44,8 +44,7 @@
                    
                     
                 </div>
-                {% empty %}
-                    <p>Dont has posts</p>   
+                {% empty %}  
                 
             
             {% endfor %}
@@ -53,4 +52,9 @@
     
     {% include "pagination.html" %}
 </body>
+<script>
+document.getElementById('formSend').onclick = function() {
+    location.reload(); // перезагружаем страницу
+}
+</script>
 </html>

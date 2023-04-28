@@ -1,8 +1,9 @@
 <div class="headerMain">
 	
 	{% if session %} 
+	<a href="/profile">{{ user }}</a>
 	<a href="/logout">logout</a>
-	<a href="/user">{{ post.user }}</a>
+	
 	{% else %}
 	<a href="/login">login</a>
 	<a href="/reg">Registration</a>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+{% load static %}
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>site</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static "css/styles.css" %}" />
+</head>
+<body>
+    {% include "header.html" %}
+
+        {% if session %} 
+        <div class="post profile">
+            <p>User: {{ user }}</p>
+            <a href="/" class="btn" >Back</a>
+        </div>
+            
+        {% else %}
+            <div class="post profile">User not logged in</div> 
+            <a href="/" class="btn" >Back</a>
+        {% endif %}   
+    </div>
+</body>
+</html>

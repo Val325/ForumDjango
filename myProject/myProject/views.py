@@ -68,7 +68,8 @@ def MainText(request):
 												 "img": img, 
 												 'page_obj': page_obj, 
 												 "session": session,
-												 "user": user}) 
+												 "user": user})
+			
 
 	except KeyError:
 		print('Is not auth!')
@@ -128,6 +129,14 @@ def logoutUser(request):
 
 def About(request):
 	return HttpResponse('<h1>About us</h1>')
+
+def profile(request):
+	session = request.session['auth']
+	user = request.session['username']
+	return render(request, 'profile.html', { 
+												"session": session,
+												"user": user
+												})
 
 def Posts(request, id):
 	DataText = textData.objects.all()

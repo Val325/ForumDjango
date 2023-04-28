@@ -14,7 +14,7 @@
     {% endif %} 
     <div class="post">
         <div class="textPost">
-            <p>id:{{ post.id }}</p><p>name:{{ post.name }}</p><p>text:{{ post.text }}</p> <a href="/posts/{{ post.id }}">See post</a>
+            <p>id:{{ post.id }}</p><p>name:{{ post.name }}</p><p>text:{{ post.text }}</p> <a href="/" class="btn">Назад</a>
         </div>
 
 
@@ -30,7 +30,7 @@
         {% for post in subposts %}
            <div class="post">
                <div class="textPost">
-                   <p>id:{{ post.id }}</p><p>user:{{ post.user }}</p><p>text:{{ post.textdata }}</p>
+                   <p>№{{ post.id }} {{ post.user }}</p><p>text:{{ post.textdata }}</p>
                </div>
                
                <div class="imagePost">
@@ -44,10 +44,14 @@
                
            </div>
            {% empty %}
-               <p>Dont has posts</p> 
            {% endfor %}                
             
             
         
 </body>
+<script>
+document.getElementById('formSendSub').onclick = function() {
+    window.location.href = "/posts/" + {{ post.id }};
+}
+</script>
 </html>

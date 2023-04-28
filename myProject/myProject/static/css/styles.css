@@ -5,6 +5,10 @@ html, body {
 body {
 	display: flex;
 	flex-direction: column;
+	overflow-x:hidden;
+}
+.helptext {
+    display: none;
 }
 .pagination_btn{
 	margin-left: 20px;
@@ -52,7 +56,7 @@ body {
 	height: 40px;
 	background-color: black;
 	margin-bottom: 30px;
-
+	box-shadow: rgba(0, 0, 0, 0.15) 0px 15px 25px, rgba(0, 0, 0, 0.05) 0px 5px 10px;
 }
 
 .headerMain > a {
@@ -71,21 +75,27 @@ body {
 	margin-left: 250px;
 	margin-right: 250px;
 	padding: 10px;
-	border: 5px solid gray;
-	background-color: lightgray;
+	border: 5px solid black;
+	background-color: #f9f9f9;
 	justify-content: center;
 	border-radius: 15px;
 	margin-bottom: 10px;
 	box-shadow: rgba(0, 0, 0, 0.15) 0px 15px 25px, rgba(0, 0, 0, 0.05) 0px 5px 10px;
 }
+
+
+	
+	
+
+	
 .login {
 	display: flex;
 	margin: 50px;
 	margin-left: 250px;
 	margin-right: 250px;
 	padding: 10px;
-	border: 5px solid gray;
-	background-color: lightgray;
+	border: 5px solid black;
+	background-color: #f9f9f9;
 	justify-content: center;
 	border-radius: 15px;
 	margin-bottom: 10px;
@@ -100,6 +110,7 @@ body {
 /* button */
 .btn {
 	justify-content: center;
+	text-decoration: none;
   	appearance: none;
   	background-color: #FAFBFC; /* button */
   	border: 1px solid black;
@@ -187,4 +198,38 @@ body {
 		width: 400px;
 		margin-top: 100px;
 	}
+}
+.differentSides{
+	display: flex;
+	justify-content: space-between;
+}
+.profile {
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-end;
+	width: 200px;
+}
+.file_upload{
+	margin-right: 20px;
+  background: white;
+  padding: 10px 15px;
+  border-radius: 10px;
+  border: 2px solid gray;
+  color: black;
+  cursor: pointer;
+  transition: background .2s ease-in-out;
+}
+.file_upload:hover{
+	margin-right: 20px;
+  background: white;
+  padding: 10px 15px;
+  border-radius: 10px;
+  border: 2px solid black;
+  color: black;
+  cursor: pointer;
+  transition: background .2s ease-in-out;
+}
+/* hide input */
+::-webkit-file-upload-button {
+   display: none;
 }

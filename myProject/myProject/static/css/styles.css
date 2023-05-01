@@ -170,7 +170,7 @@ body {
 
 @media only screen and (min-width: 950px) {
   .form {
-			width: 400px;
+			width: 500px;
 	}
 	.login {
 		margin: auto;
@@ -186,7 +186,7 @@ body {
 @media only screen and (max-width: 850px) {
   .form {
   		/*margin: auto;*/
-			width: 400px;
+			width: 500px;
 	}
 	.login {
 		margin: auto;

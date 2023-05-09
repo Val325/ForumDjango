@@ -10,8 +10,8 @@ from django.contrib.auth import logout
 from django.contrib.auth.decorators import login_required
 from django.core.paginator import EmptyPage, PageNotAnInteger
 
-def MainText(request):
-	DataText = models.textData.objects.all()
+def category(request, id):
+	DataText = models.textData.objects.filter(category="cat_" + str(id))
 	img = None 
 	page_num = request.GET.get('page', 1)
 	paginator = Paginator(DataText, 6)
@@ -54,7 +54,7 @@ def MainText(request):
 			if form.is_valid():
 				img = form.instance
 				post = form.save(commit=False)
-				post.category = request.POST.get('category')
+				post.category = "cat_" + str(id)
 				post.user_id = user
 				post.save()
 
@@ -75,4 +75,4 @@ def MainText(request):
 	
 	
 	form = forms.UserForm()
-	return render(request, 'main.html', {'form': form, 'DataText': DataText, "img": img, 'page_obj': page_obj, "session": session})
+	return render(request, 'category.html', {'form': form, 'DataText': DataText, "img": img, 'page_obj': page_obj, "session": session, "num_cat": id})

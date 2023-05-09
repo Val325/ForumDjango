@@ -16,7 +16,7 @@ def sign_up(request):
         return render(request, 'registration.html', { 'form': form})
     else:
     	print(request.POST)
-    	form = RegisterForm(request.POST)
+    	form = forms.RegisterForm(request.POST)
     	if form.is_valid():
     		user = form.save(commit=False)
     		user.save()

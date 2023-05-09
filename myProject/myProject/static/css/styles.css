@@ -7,16 +7,47 @@ body {
 	flex-direction: column;
 	overflow-x:hidden;
 }
+content {
+	display: flex;
+	flex-direction: row;	
+}
+.leftSide {
+	margin-left: 20px;
+	margin-right: 20px;
+	width: 200px;
+	height: 500px;
+	padding: 10px;
+	border: 5px solid black;
+	background-color: #f9f9f9;
+	display: flex;
+	flex-direction: row-reverse;
+	border-radius: 15px;
+	margin-bottom: 30px;
+	box-shadow: rgba(0, 0, 0, 0.15) 0px 15px 25px, rgba(0, 0, 0, 0.05) 0px 5px 10px;
+}
+
 .helptext {
     display: none;
 }
 .pagination_btn{
 	margin-left: 20px;
+	margin-bottom: 20px;
 }
 .errorlist{
 	display: none
 }
+.leftSide{
+	margin-top: 72.84px;
+	flex-grow: 1;
+	display: flex;
+	flex-direction: column;
+}
+.rightSide{
+	flex-grow: 16;
+	
+}
 .post {
+
 	margin-left: 20px;
 	margin-right: 20px;
 	padding: 10px;
@@ -53,7 +84,7 @@ body {
 }
 .headerMain {
 	width: 100vw;
-	height: 40px;
+	height: 50px;
 	background-color: black;
 	margin-bottom: 30px;
 	box-shadow: rgba(0, 0, 0, 0.15) 0px 15px 25px, rgba(0, 0, 0, 0.05) 0px 5px 10px;

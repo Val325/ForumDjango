@@ -13,6 +13,7 @@ urlpatterns = [
     path('login/', views.sign_in),
     path('logout/', auth_views.LogoutView.as_view(next_page=settings.LOGOUT_REDIRECT_URL), name='logout'),
     path('posts/<id>', views.Posts),
+    path('category/<id>', views.category),
     path('admin/', admin.site.urls),
     re_path(r'^profile/', views.profile),
 ]

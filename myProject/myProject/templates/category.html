@@ -19,16 +19,6 @@
                         <table>
                             {{ form }}
                         </table>
-                        <div>
-                            <input type="radio" id="category_1" name="category" value="cat_1">
-                            <label for="category_1">category 1</label><br>
-                            <input type="radio" id="category_2" name="category" value="cat_2">
-                            <label for="category_2">category 2</label><br>
-                            <input type="radio" id="category_3" name="category" value="cat_3">
-                            <label for="category_3">category 3</label>
-                        </div>
-                        
-
                     <input type="submit" value="Send" class="btn" id="formSend" />
                 </form>
         </div>
@@ -36,9 +26,9 @@
         <content>
         {% include "leftside.html" %}
         <aside class="rightSide">
-            <h2 class="header">Posts</h2>
+            <h2 class="header">category {{ num_cat }}</h2>
                 <div class="posts">
-                     
+                   
                     {% for post in page_obj %}
                         <div class="post">
             

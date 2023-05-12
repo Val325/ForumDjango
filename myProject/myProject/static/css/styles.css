@@ -115,8 +115,32 @@ content {
 }
 
 
-	
-	
+aside > a {
+	padding: 20px;
+}	
+ /* unvisited link */
+aside > a:link {
+  text-decoration: none;
+  color: gray;
+}
+
+/* visited link */
+aside > a:visited {
+  text-decoration: none;
+  color: black;
+}
+
+/* mouse over link */
+aside > a:hover {
+  text-decoration: none;
+  color: black;
+}
+
+/* selected link */
+aside > a:active {
+  text-decoration: none;
+  color: black;
+} 
 
 	
 .login {
@@ -240,6 +264,7 @@ content {
 	justify-content: flex-end;
 	width: 200px;
 }
+/*
 .file_upload{
 	margin-right: 20px;
   background: white;
@@ -260,6 +285,7 @@ content {
   cursor: pointer;
   transition: background .2s ease-in-out;
 }
+*/
 /* hide input */
 ::-webkit-file-upload-button {
    display: none;

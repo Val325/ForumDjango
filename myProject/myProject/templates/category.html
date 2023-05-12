@@ -13,15 +13,16 @@
     
         {% if session %} 
         <h2 class="header">Form</h2>
+        <!--
         <div class="form">
-                <form method="post" action="/" enctype="multipart/form-data" class="button_cent">
+                <form method="post" action="/category/{{ num_cat }}" enctype="multipart/form-data" class="button_cent">
                     {% csrf_token %}
                         <table>
                             {{ form }}
                         </table>
                     <input type="submit" value="Send" class="btn" id="formSend" />
                 </form>
-        </div>
+        </div>-->
         {% endif %}   
         <content>
         {% include "leftside.html" %}
@@ -33,7 +34,7 @@
                         <div class="post">
             
                             <div class="textPost">
-                                <p>№{{ post.id }} {{ post.user }}</p><p>{{ post.textdata }}</p> <a href="/posts/{{ post.id }}" class="btn" >Зайти в обсуждение</a>
+                                <p>№{{ post.id }} data:{{ post.time }} user:{{ post.user }}</p><p>{{ post.textdata }}</p> <a href="/posts/{{ post.id }}" class="btn" >Зайти в обсуждение</a>
                             </div>
                             
                             <div class="imagePost">

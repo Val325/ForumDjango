@@ -13,6 +13,7 @@
     
         {% if session %} 
         <h2 class="header">Form</h2>
+        <!--
         <div class="form">
                 <form method="post" action="/" enctype="multipart/form-data" class="button_cent">
                     {% csrf_token %}
@@ -31,7 +32,7 @@
 
                     <input type="submit" value="Send" class="btn" id="formSend" />
                 </form>
-        </div>
+        </div>-->
         {% endif %}   
         <content>
         {% include "leftside.html" %}

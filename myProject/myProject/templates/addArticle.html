@@ -11,7 +11,7 @@
     {% include "header.html" %}
 
         {% if session %} 
-            <div class="post profile">add article</div> 
+            <div class="post profile addArticle">add article</div> 
             <div class="form">
                 <form method="post" action="/add/" enctype="multipart/form-data" class="button_cent">
                     {% csrf_token %}

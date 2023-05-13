@@ -1,8 +1,9 @@
 <div class="headerMain">
 	
 	{% if session %} 
-	<a href="/profile">{{ user }}</a>
-	<a href="/add">add article</a>
+  <a href="/">Back</a>
+  <a href="/profile">{{ user }}</a>
+	<a href="/add">Add article</a>
 	<a href="/logout">logout</a>
 	{% else %}
 	<a href="/login">login</a>

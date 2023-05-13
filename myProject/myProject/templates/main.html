@@ -44,15 +44,19 @@
                         <div class="post">
             
                             <div class="textPost">
-                                <p>№{{ post.id }} {{ post.user }}</p><p>{{ post.textdata }}</p> <a href="/posts/{{ post.id }}" class="btn" >Зайти в обсуждение</a>
+                                <p>{{ post.textdata }}</p>
                             </div>
                             
                             <div class="imagePost">
+                                <p>№{{ post.id }}</p>
+                                <p>User:{{ post.user }}</p>
+                                <p>data:{{ post.time }}</p>
                                 {% if post.image %}  
                                 <a href="/myProject/media/{{post.image}}" target="_blank">
                                     <img src="/myProject/media/{{post.image}}" width="100" height="100">
                                 </a>
-                                {% endif %}  
+                                {% endif %}
+                                <br /><a href="/posts/{{ post.id }}" class="btn" >Зайти в обсуждение</a>
                             </div>
                            
                             

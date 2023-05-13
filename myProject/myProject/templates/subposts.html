@@ -9,38 +9,58 @@
 </head>
 <body>
     {% include "header.html" %}
-    {% if session %} 
+    <!--{% if session %} 
     {% include "form.html" %}
-    {% endif %} 
+    {% endif %}-->
     <div class="post">
         <div class="textPost">
-            <p>id:{{ post.id }}</p><p>name:{{ post.name }}</p><p>text:{{ post.text }}</p> <a href="/" class="btn">Назад</a>
+            
+            <p>{{ post.text }}</p> 
         </div>
 
 
     <div class="imagePost">
+        <p>№{{ post.id }}</p>
+        <p>User:{{ post.name }}</p>
+        <p>data:{{ post.time }}</p>
+
         {% if post.image %}  
         <a href="/myProject/media/{{post.image}}" target="_blank">
             <img src="/myProject/media/{{post.image}}" width="100" height="100">
         </a>
         {% endif %}  
+        <a href="/" class="btn">Back</a>
     </div>
 
 </div>
+    {% if session %} 
+    {% include "form.html" %}
+    {% endif %} 
         {% for post in subposts %}
-           <div class="post">
+           <div class="post comments">
                <div class="textPost">
-                   <p>№{{ post.id }} {{ post.user }}</p><p>text:{{ post.textdata }}</p>
+                   <p>{{ post.textdata }}</p>
                </div>
-               
+              <!-- 
                <div class="imagePost">
                    {% if post.image %}  
                     <a href="/myProject/media/{{post.image}}" target="_blank">
                        <img src="/myProject/media/{{post.image}}" width="100" height="100">
                     </a>
                    {% endif %}  
-               </div>
-              
+               </div>-->
+              <div class="imagePost">
+                <p>№{{ post.id }}</p>
+                <p>User:{{ post.user }}</p>
+                <p>data:{{ post.time }}</p>
+
+                {% if post.image %}  
+                  <a href="/myProject/media/{{post.image}}" target="_blank">
+                    <img src="/myProject/media/{{post.image}}" width="100" height="100">
+                  </a>
+                {% endif %}
+                  
+                </div>
                
            </div>
            {% empty %}

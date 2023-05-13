@@ -10,38 +10,33 @@ from django.contrib.auth import logout
 from django.contrib.auth.decorators import login_required
 from django.core.paginator import EmptyPage, PageNotAnInteger
 
-def profile(request):
+def add_article(request):
 	session = request.session['auth']
 	user = request.session['username']
-	UserData = models.UserProfile.objects.all()
-	print("userdata:", UserData)
-	
-	profile_img = get_object_or_404(UserData, user=user)
-	print('user', profile_img.avatar)
-	img = profile_img.avatar
 	if request.method == 'GET':
-		form = forms.UserProfileForm()
-		return render(request, 'profile.html', { 
+		form = forms.UserForm()
+		return render(request, 'addArticle.html', { 
 											"session": session,
 											"user": user,
 											"form": form,
-											"img":profile_img.avatar
-
 										})
+
 	else:
 		if request.method == "POST" and session:  
-			form = forms.UserProfileForm(request.POST, request.FILES)
-			print("form:", form)
+			form = forms.UserForm(request.POST, request.FILES)
+
+
 			if form.is_valid():
 				img = form.instance
 				post = form.save(commit=False)
-				post.user_id = user # change is here
+				post.category = request.POST.get('category')
+				post.user_id = user
 				post.save()
-			return render(request, 'profile.html', { 
+			
+			return render(request, 'addArticle.html', { 
 											"session": session,
 											"user": user,
 											"form": form,
-											"img":img
 										})
 
 	

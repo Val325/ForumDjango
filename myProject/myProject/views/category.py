@@ -11,7 +11,9 @@ from django.contrib.auth.decorators import login_required
 from django.core.paginator import EmptyPage, PageNotAnInteger
 
 def category(request, id):
-	DataText = models.textData.objects.filter(category="cat_" + str(id))
+	category_query = "cat_" + str(id)
+	print("category: ", category_query)
+	DataText = models.textData.objects.filter(category=category_query)
 	img = None 
 	page_num = request.GET.get('page', 1)
 	paginator = Paginator(DataText, 6)
@@ -49,16 +51,16 @@ def category(request, id):
 
 		if request.method == "POST" and session:  
 			form = forms.UserForm(request.POST, request.FILES)
-
-
+			
 			if form.is_valid():
+
 				img = form.instance
 				post = form.save(commit=False)
-				post.category = "cat_" + str(id)
+				post.category = category_query
 				post.user_id = user
 				post.save()
 
-			return render(request, 'main.html', {'form': form,
+			return render(request, 'category.html', {'form': form,
 												 'DataText': DataText,
 												 "img": img, 
 												 'page_obj': page_obj, 

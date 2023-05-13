@@ -13,6 +13,7 @@
     
         {% if session %} 
         <h2 class="header">Form</h2>
+        <!--
         <div class="form">
                 <form method="post" action="/" enctype="multipart/form-data" class="button_cent">
                     {% csrf_token %}
@@ -31,7 +32,7 @@
 
                     <input type="submit" value="Send" class="btn" id="formSend" />
                 </form>
-        </div>
+        </div>-->
         {% endif %}   
         <content>
         {% include "leftside.html" %}
@@ -43,15 +44,19 @@
                         <div class="post">
             
                             <div class="textPost">
-                                <p>№{{ post.id }} {{ post.user }}</p><p>{{ post.textdata }}</p> <a href="/posts/{{ post.id }}" class="btn" >Зайти в обсуждение</a>
+                                <p>{{ post.textdata }}</p>
                             </div>
                             
                             <div class="imagePost">
+                                <p>№{{ post.id }}</p>
+                                <p>User:{{ post.user }}</p>
+                                <p>data:{{ post.time }}</p>
                                 {% if post.image %}  
                                 <a href="/myProject/media/{{post.image}}" target="_blank">
                                     <img src="/myProject/media/{{post.image}}" width="100" height="100">
                                 </a>
-                                {% endif %}  
+                                {% endif %}
+                                <br /><a href="/posts/{{ post.id }}" class="btn" >Зайти в обсуждение</a>
                             </div>
                            
                             

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+{% load static %}
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>site</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static "css/styles.css" %}" />
+</head>
+<body>
+    {% include "header.html" %}
+
+        {% if session %} 
+            <div class="post profile addArticle">add article</div> 
+            <div class="form">
+                <form method="post" action="/add/" enctype="multipart/form-data" class="button_cent">
+                    {% csrf_token %}
+                        <table>
+                            {{ form }}
+                        </table>
+                        <div>
+                            <input type="radio" id="category_1" name="category" value="cat_1">
+                            <label for="category_1">category 1</label><br>
+                            <input type="radio" id="category_2" name="category" value="cat_2">
+                            <label for="category_2">category 2</label><br>
+                            <input type="radio" id="category_3" name="category" value="cat_3">
+                            <label for="category_3">category 3</label>
+                        </div>
+                        
+
+                    <input type="submit" value="Send" class="btn" id="formSend" />
+                </form>
+        </div>
+        
+            
+        
+        
+            
+        {% else %}
+            <div class="post profile">User not logged in</div> 
+            
+        {% endif %}   
+    </div>
+</body>
+</html>

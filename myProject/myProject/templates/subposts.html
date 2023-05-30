@@ -9,14 +9,14 @@
 </head>
 <body>
     {% include "header.html" %}
-    <!--{% if session %} 
+   
+    {% if session %} 
     {% include "form.html" %}
-    {% endif %}-->
-    <div class="post">
-        <div class="textPost">
-            
-            <p>{{ post.text }}</p> 
-        </div>
+    {% endif %}
+	<div class="post">
+	<div class="textPost">
+        	<p>{{ post.text }}</p> 
+        </div> 
 
 
     <div class="imagePost">
@@ -32,10 +32,11 @@
         <a href="/" class="btn">Back</a>
     </div>
 
+
+
+	
 </div>
-    {% if session %} 
-    {% include "form.html" %}
-    {% endif %} 
+
         {% for post in subposts %}
            <div class="post comments">
                <div class="textPost">

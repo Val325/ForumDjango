@@ -9,6 +9,7 @@ from django.contrib import messages
 from django.contrib.auth import logout
 from django.contrib.auth.decorators import login_required
 from django.core.paginator import EmptyPage, PageNotAnInteger
+from django.db.models import F
 
 def Posts(request, id):
     DataText = models.textData.objects.all()
@@ -18,8 +19,13 @@ def Posts(request, id):
     print("----------")
     print("Query to DB", DataText.query)
     print("Query to subposts", subposts.query)
-    #print("Query to post", post.query)
+    print("Time:", DataText.annotate(timepost=F("time")))
+    data = DataText.annotate(timepost=F("time"))
+    for item in data:
+        print("data: ", item.time)
     print("----------")
+    print("post: ", post.time)
+    time = post.time
     try:
 	    session = request.session['auth']
 	    print("auth:")
@@ -77,4 +83,4 @@ def Posts(request, id):
     form = forms.UserForm(request.POST, request.FILES)
 	
 
-    return render(request, 'subposts.html', {'form': form, 'post': post, 'idform': DataId[indexChoiceArray], 'subposts': subposts, "session": session})
+    return render(request, 'subposts.html', {'form': form, 'post': post,'time':time, 'idform': DataId[indexChoiceArray], 'subposts': subposts, "session": session})

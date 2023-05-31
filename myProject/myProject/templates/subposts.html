@@ -22,14 +22,18 @@
     <div class="imagePost">
         <p>№{{ post.id }}</p>
         <p>User:{{ post.name }}</p>
-        <p>data:{{ post.time }}</p>
+        <p>data:{{ time }}</p>
 
-        {% if post.image %}  
-        <a href="/myProject/media/{{post.image}}" target="_blank">
-            <img src="/myProject/media/{{post.image}}" width="100" height="100">
-        </a>
-        {% endif %}  
-        <a href="/" class="btn">Back</a>
+	{% if post.image %}  
+       	<a href="/myProject/media/{{post.image}}" target="_blank">
+           <img src="/myProject/media/{{post.image}}" width="100" height="100">
+	</a>
+	
+       	{% endif %}
+	<br>
+	<a href="/" class="btn">Back</a>
+
+	
     </div>
 
 
